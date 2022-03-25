@@ -1,5 +1,3 @@
-import 'package:calorie_tracker_app/locator.dart';
-
 class QuestionController {
   double correctValue;
   QuestionController({required this.correctValue});

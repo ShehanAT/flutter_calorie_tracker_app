@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:calorie_tracker_app/src/utils/uuid.dart';
-import 'package:calorie_tracker_app/src/model/food_model.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 @JsonSerializable()
