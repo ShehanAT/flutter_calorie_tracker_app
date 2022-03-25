@@ -1,6 +1,5 @@
 import 'package:calorie_tracker_app/src/model/food_track_task.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:calorie_tracker_app/src/model/food_model.dart';
 
 class DatabaseService {
   final String uid;
