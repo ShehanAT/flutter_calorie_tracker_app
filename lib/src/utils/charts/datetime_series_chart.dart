@@ -21,14 +21,12 @@ class _DateTimeChart extends State<DateTimeChart> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     getAllFoodTrackData();
   }
 
   void getAllFoodTrackData() async {
-    Stream<List<FoodTrackTask>> result = databaseService.foodTracks;
     List<dynamic> foodTrackResults =
         await databaseService.getAllFoodTrackData();
     List<FoodTrackEntry> foodTrackEntries = [];
@@ -89,7 +87,6 @@ class _DateTimeChart extends State<DateTimeChart> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     if (resultChartData != null) {
       return Scaffold(
         body: new Center(

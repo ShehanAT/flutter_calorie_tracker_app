@@ -11,6 +11,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'question-alert.dart';
 import 'dart:math';
 import 'package:calorie_tracker_app/src/utils/theme_colors.dart';
+import 'package:calorie_tracker_app/src/utils/constants.dart';
 
 class DayViewScreen extends StatefulWidget {
   DayViewScreen();
@@ -51,7 +52,7 @@ class _DayViewState extends State<DayViewScreen> {
         mealTime: "",
         createdOn: _value,
         grams: 0);
-    databaseService.getFoodTrackData("calorie-tracker-b7d17");
+    databaseService.getFoodTrackData(DATABASE_UID);
   }
 
   void resetFoodTrack() {
@@ -95,19 +96,7 @@ class _DayViewState extends State<DayViewScreen> {
       iconSize: 25,
       color: Colors.white,
       onPressed: () async {
-        // dynamic result = await _scan.barcodeScan();
-        dynamic result = new ProductResult();
-        // ProductQueryConfiguration configuration = ProductQueryConfiguration(
-        //     barcode,
-        //     language: OpenFoodFactsLanguage.ENGLISH,
-        //     fields: [ProductField.ALL]);
-        // ProductResult result =
-        //     await OpenFoodAPIClient.getProduct(configuration);
-        setState(() {
-          // newResult = result.product!;
-          // newResult = result.product;
-          // productName = newResult.productName!;
-        });
+        setState(() {});
         _showFoodToAdd(context);
       },
     );
@@ -123,8 +112,6 @@ class _DayViewState extends State<DayViewScreen> {
         return Theme(
           data: ThemeData.light().copyWith(
             primaryColor: const Color(0xff5FA55A), //Head background
-            // accentColor: const Color(0xFF5FA55A)//selection color
-            //dialogBackgroundColor: Colors.white,//Background color
           ),
           child: child!,
         );

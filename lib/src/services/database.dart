@@ -13,24 +13,6 @@ class DatabaseService {
   final CollectionReference foodTrackCollection =
       FirebaseFirestore.instance.collection('foodTracks');
 
-  Future newFoodTrackData(String name, double calories, double carbs,
-      double fat, double protein, String mealTime, double grams) async {
-    return await foodTrackCollection
-        .doc(uid)
-        .collection('foodTracks')
-        .doc(DateTime.now().millisecondsSinceEpoch.toString())
-        .set({
-      'food_name': name,
-      'calories': calories,
-      'carbs': carbs,
-      'fat': fat,
-      'protein': protein,
-      'mealTime': mealTime,
-      'created_on': DateTime.now(),
-      'grams': grams,
-    });
-  }
-
   Future addFoodTrackEntry(FoodTrackTask food) async {
     return await foodTrackCollection
         .doc(food.createdOn.millisecondsSinceEpoch.toString())
@@ -50,14 +32,6 @@ class DatabaseService {
     print(deleteEntry.toString());
     return await foodTrackCollection
         .doc(deleteEntry.createdOn.millisecondsSinceEpoch.toString())
-        .delete();
-  }
-
-  Future<void> deleteScan(String productID) async {
-    await foodTrackCollection
-        .doc(uid)
-        .collection('foodTracks')
-        .doc(productID)
         .delete();
   }
 
@@ -89,7 +63,6 @@ class DatabaseService {
 
   Future<String> getFoodTrackData(String uid) async {
     DocumentSnapshot snapshot = await foodTrackCollection.doc(uid).get();
-    print("getFoodTrackData" + snapshot.toString());
     return snapshot.toString();
   }
 }
