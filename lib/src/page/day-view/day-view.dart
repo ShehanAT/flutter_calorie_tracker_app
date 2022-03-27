@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import 'package:calorie_tracker_app/src/services/database.dart';
 import 'package:openfoodfacts/model/Product.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'question-alert.dart';
 import 'dart:math';
 import 'package:calorie_tracker_app/src/utils/theme_colors.dart';
 import 'package:calorie_tracker_app/src/utils/constants.dart';
@@ -23,8 +22,7 @@ class DayViewScreen extends StatefulWidget {
 }
 
 class _DayViewState extends State<DayViewScreen> {
-  String productName = 'Add Food';
-  late Product newResult;
+  String title = 'Add Food';
   double servingSize = 0;
   String dropdownValue = 'grams';
   DateTime _value = DateTime.now();
@@ -144,7 +142,7 @@ class _DayViewState extends State<DayViewScreen> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text(productName),
+            title: Text(title),
             content: _showAmountHad(),
             actions: <Widget>[
               FlatButton(
@@ -182,7 +180,6 @@ class _DayViewState extends State<DayViewScreen> {
       body: Column(children: <Widget>[
         _showAddFoodForm(),
         _showUserAmount(),
-        _showServingOrGrams()
       ]),
     );
   }
@@ -291,7 +288,7 @@ class _DayViewState extends State<DayViewScreen> {
           maxLines: 1,
           autofocus: true,
           decoration: new InputDecoration(
-              labelText: 'Serving *',
+              labelText: 'Grams *',
               hintText: 'eg. 100',
               contentPadding: EdgeInsets.all(0.0)),
           keyboardType: TextInputType.number,
@@ -453,30 +450,6 @@ class _DayViewState extends State<DayViewScreen> {
           ]),
         ));
   }
-
-  Widget _showServingOrGrams() {
-    return Expanded(
-      child: Padding(
-          padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
-          child: DropdownButtonFormField(
-            value: dropdownValue,
-            icon: Icon(Icons.arrow_downward),
-            iconSize: 24,
-            decoration: InputDecoration(contentPadding: EdgeInsets.all(0.0)),
-            style: TextStyle(color: Colors.black),
-            onChanged: (newValue) => setState(() {
-              dropdownValue = newValue.toString();
-            }),
-            items: <String>['grams', 'servings']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-          )),
-    );
-  }
 }
 
 class FoodTrackList extends StatelessWidget {
@@ -498,7 +471,6 @@ class FoodTrackList extends StatelessWidget {
         if (scanDate.compareTo(curDate) == 0) {
           curScans.add(foodTrack);
         }
-        // curScans.add(foodTrack);
       });
       return curScans;
     }
@@ -673,27 +645,13 @@ class FoodTrackTile extends StatelessWidget {
               fontFamily: 'Open Sans',
               fontWeight: FontWeight.w400,
             )),
-        IconButton(
-            icon: Icon(Icons.edit),
-            iconSize: 16,
-            onPressed: () {
-              // Navigator.push(
-              //   context,
-
-              //   MaterialPageRoute(builder: (context) => EditItem(scan: scan)),
-              // );
-            }),
+        IconButton(icon: Icon(Icons.edit), iconSize: 16, onPressed: () {}),
         IconButton(
             icon: Icon(Icons.delete),
             iconSize: 16,
             onPressed: () async {
               print("Delete button pressed");
               databaseService.deleteFoodTrackEntry(foodTrackEntry);
-              // Navigator.push(
-              //   context,
-
-              //   MaterialPageRoute(builder: (context) => EditItem(scan: scan)),
-              // );
             }),
       ],
     );
