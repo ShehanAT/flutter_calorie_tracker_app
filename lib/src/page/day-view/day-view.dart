@@ -63,8 +63,6 @@ class _DayViewState extends State<DayViewScreen> {
         grams: 0);
   }
 
-  void onClickBackButton() {}
-
   Widget _calorieCounter() {
     return Padding(
       padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
@@ -643,7 +641,6 @@ class FoodTrackTile extends StatelessWidget {
               fontFamily: 'Open Sans',
               fontWeight: FontWeight.w400,
             )),
-        IconButton(icon: Icon(Icons.edit), iconSize: 16, onPressed: () {}),
         IconButton(
             icon: Icon(Icons.delete),
             iconSize: 16,
