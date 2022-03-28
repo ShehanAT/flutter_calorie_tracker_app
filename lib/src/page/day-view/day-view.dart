@@ -28,15 +28,13 @@ class _DayViewState extends State<DayViewScreen> {
   DateTime _value = DateTime.now();
   DateTime today = DateTime.now();
   Color _rightArrowColor = Color(0xffC1C1C1);
+  Color _leftArrowColor = Color(0xffC1C1C1);
   final _addFoodKey = GlobalKey<FormState>();
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  bool _isBack = true;
   DatabaseService databaseService = new DatabaseService(
       uid: "calorie-tracker-b7d17", currentDate: DateTime.now());
 
   late FoodTrackTask addFoodTrack;
-  late String calorieAmount;
 
   @override
   void initState() {
@@ -317,7 +315,7 @@ class _DayViewState extends State<DayViewScreen> {
         children: <Widget>[
           IconButton(
             icon: Icon(Icons.arrow_left, size: 25.0),
-            color: Colors.white,
+            color: _leftArrowColor,
             onPressed: () {
               setState(() {
                 _value = _value.subtract(Duration(days: 1));
