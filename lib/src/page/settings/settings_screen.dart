@@ -13,9 +13,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  bool _isBack = true;
-
   @override
   void initState() {
     super.initState();
@@ -23,7 +20,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // const IconData computer = IconData(0xe185, fontFamily: 'MaterialIcons');
     return SettingsList(
       sections: [
         SettingsSection(

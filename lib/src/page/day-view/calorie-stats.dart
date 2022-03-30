@@ -5,26 +5,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:calorie_tracker_app/src/utils/theme_colors.dart';
 
 class CalorieStats extends StatelessWidget {
-  DateTime datePicked;
-  DateTime today = DateTime.now();
-  CalorieStats({required this.datePicked});
-
-  num totalCalories = 0;
-  num totalCarbs = 0;
-  num totalFat = 0;
-  num totalProtein = 0;
-  num displayCalories = 0;
-
-  bool dateCheck() {
-    DateTime formatPicked =
-        DateTime(datePicked.year, datePicked.month, datePicked.day);
-    DateTime formatToday = DateTime(today.year, today.month, today.day);
-    if (formatPicked.compareTo(formatToday) == 0) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  bool dateCheck() {}
 
   static List<num> macroData = [];
 

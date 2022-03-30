@@ -13,17 +13,12 @@ class HistoryScreen extends StatefulWidget {
 }
 
 class _HistoryScreenState extends State<HistoryScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  bool _isBack = true;
   @override
   void initState() {
     super.initState();
   }
 
-  void onClickBackButton() {
-    print("Back Button");
-    Navigator.of(context).pop();
-  }
+  void onClickBackButton() {}
 
   @override
   Widget build(BuildContext context) {

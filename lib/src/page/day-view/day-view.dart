@@ -22,48 +22,12 @@ class DayViewScreen extends StatefulWidget {
 }
 
 class _DayViewState extends State<DayViewScreen> {
-  String title = 'Add Food';
-  double servingSize = 0;
-  String dropdownValue = 'grams';
-  DateTime _value = DateTime.now();
-  DateTime today = DateTime.now();
-  Color _rightArrowColor = Color(0xffC1C1C1);
-  final _addFoodKey = GlobalKey<FormState>();
-
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  bool _isBack = true;
-  DatabaseService databaseService = new DatabaseService(
-      uid: "calorie-tracker-b7d17", currentDate: DateTime.now());
-
-  late FoodTrackTask addFoodTrack;
-  late String calorieAmount;
-
   @override
   void initState() {
     super.initState();
-    addFoodTrack = FoodTrackTask(
-        food_name: "",
-        calories: 0,
-        carbs: 0,
-        protein: 0,
-        fat: 0,
-        mealTime: "",
-        createdOn: _value,
-        grams: 0);
-    databaseService.getFoodTrackData(DATABASE_UID);
   }
 
-  void resetFoodTrack() {
-    addFoodTrack = FoodTrackTask(
-        food_name: "",
-        calories: 0,
-        carbs: 0,
-        protein: 0,
-        fat: 0,
-        mealTime: "",
-        createdOn: _value,
-        grams: 0);
-  }
+  void resetFoodTrack() {}
 
   void onClickBackButton() {}
 
