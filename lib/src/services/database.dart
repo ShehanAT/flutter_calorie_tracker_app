@@ -29,7 +29,6 @@ class DatabaseService {
   }
 
   Future deleteFoodTrackEntry(FoodTrackTask deleteEntry) async {
-    print(deleteEntry.toString());
     return await foodTrackCollection
         .doc(deleteEntry.createdOn.millisecondsSinceEpoch.toString())
         .delete();
