@@ -129,7 +129,7 @@ class CalorieStats extends StatelessWidget {
               children: <Widget>[
                 Text('Protein ',
                     style: TextStyle(
-                      color: Color(0xffFA8925),
+                      color: Color(PROTEIN_COLOR),
                       fontFamily: 'Open Sans',
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500,
@@ -148,7 +148,7 @@ class CalorieStats extends StatelessWidget {
               children: <Widget>[
                 Text('Fat ',
                     style: TextStyle(
-                      color: Color(0xff01B4BC),
+                      color: Color(FAT_COLOR),
                       fontFamily: 'Open Sans',
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500,

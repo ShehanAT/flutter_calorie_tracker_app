@@ -450,6 +450,8 @@ class _DayViewState extends State<DayViewScreen> {
 
 class FoodTrackList extends StatelessWidget {
   final DateTime datePicked;
+  late List<dynamic> curFoodTracks;
+  late DatabaseService databaseService;
   FoodTrackList({required this.datePicked});
 
   @override
@@ -471,21 +473,27 @@ class FoodTrackList extends StatelessWidget {
       return curScans;
     }
 
-    List curScans = findCurScans(foodTracks);
+    curFoodTracks = findCurScans(foodTracks);
 
     return ListView.builder(
       scrollDirection: Axis.vertical,
       physics: ClampingScrollPhysics(),
       shrinkWrap: true,
-      itemCount: curScans.length + 1,
+      itemCount: curFoodTracks.length + 1,
       itemBuilder: (context, index) {
-        if (index < curScans.length) {
-          return FoodTrackTile(foodTrackEntry: curScans[index]);
+        if (index < curFoodTracks.length) {
+          return FoodTrackTile(foodTrackEntry: curFoodTracks[index]);
         } else {
           return SizedBox(height: 5);
         }
       },
     );
+  }
+
+  Future<void> loadFromMockDatabase() async {
+    databaseService = new DatabaseService(
+        uid: "calorie-tracker-b7d17", currentDate: DateTime.now());
+    curFoodTracks.add(await databaseService.loadFoodTrackEntryToDatabase());
   }
 }
 
@@ -691,7 +699,7 @@ class FoodTrackTile extends StatelessWidget {
             child: LinearProgressIndicator(
               value: carbsValue,
               backgroundColor: Color(0xffEDEDED),
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xffFA5457)),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(CARBS_COLOR)),
             ),
           ),
           Text('      ' + ((carbsValue) * 100).toStringAsFixed(0) + '%'),
@@ -715,7 +723,7 @@ class FoodTrackTile extends StatelessWidget {
             child: LinearProgressIndicator(
               value: proteinValue,
               backgroundColor: Color(0xffEDEDED),
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xffFA8925)),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(PROTEIN_COLOR)),
             ),
           ),
           Text('      ' + ((proteinValue) * 100).toStringAsFixed(0) + '%'),
@@ -739,7 +747,7 @@ class FoodTrackTile extends StatelessWidget {
             child: LinearProgressIndicator(
               value: (foodTrackEntry.fat / macros[3]),
               backgroundColor: Color(0xffEDEDED),
-              valueColor: AlwaysStoppedAnimation<Color>(Color(0xff01B4BC)),
+              valueColor: AlwaysStoppedAnimation<Color>(Color(FAT_COLOR)),
             ),
           ),
           Text('      ' + ((fatValue) * 100).toStringAsFixed(0) + '%'),

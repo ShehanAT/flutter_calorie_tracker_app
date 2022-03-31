@@ -8,35 +8,35 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
-
 dependencies:
   flutter:
     sdk: flutter
-  flutter_colorpicker: ^0.5.0
-  json_annotation: ^4.0.1
-  sqflite: ^2.0.0+3
-  path_provider: ^2.0.2
-  scoped_model: ^1.1.0
-  get_it: ^4.0.4
-  firebase_core: ^1.10.0
-  firebase_database: ^9.0.6
-  firebase_storage: ^8.0.0
-  cloud_firestore: ^3.0.0
+  flutter_colorpicker: ^1.0.3
+  json_annotation: ^4.4.0
+  sqflite: ^2.0.2
+  path_provider: ^2.0.9
+  scoped_model: ^2.0.0-nullsafety.0
+  get_it: ^7.2.0
+  firebase_core: ^1.13.1
+  firebase_database: ^9.0.8
+  firebase_storage: ^10.2.9
+  cloud_firestore: ^3.1.10
   flutter_spinkit: ^5.1.0
-  firebase_auth:
+  firebase_auth: ^3.3.11
   after_layout: ^1.1.0
-  cached_network_image: ^3.1.0+1
+  cached_network_image: ^3.2.0
   http: ^0.13.4
-  provider: ^6.0.1
-  shared_preferences: ^2.0.8
+  provider: ^6.0.2
+  shared_preferences: ^2.0.13
   smooth_page_indicator: ^1.0.0+2
-  url_launcher: ^6.0.12
-  webview_flutter: ^3.0.0
+  url_launcher: ^6.0.20
+  webview_flutter: ^3.0.1
   charts_common: ^0.12.0
   charts_flutter: ^0.12.0
-  fl_chart: ^0.11.0
-  openfoodfacts: ^1.2.0
+  fl_chart: ^0.50.0
+  openfoodfacts: ^1.14.0
   settings_ui: ^2.0.2
+  mockito: ^5.0.17
 
 dependencies_overrides:
   photo_view: ^0.12.0
@@ -45,8 +45,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.4
-  build_runner: ^2.0.5
-  json_serializable: ^4.1.3
+  # build_runner: ^2.1.8
+  build_runner: ^2.1.8
+  json_serializable: ^6.1.5
+  test: ^1.19.5
+  # test_coverage: ^0.4.0
+  # test_core: ^0.4.10
 
 flutter:
   uses-material-design: true

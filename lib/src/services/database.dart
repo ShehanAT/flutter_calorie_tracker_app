@@ -65,4 +65,22 @@ class DatabaseService {
     DocumentSnapshot snapshot = await foodTrackCollection.doc(uid).get();
     return snapshot.toString();
   }
+
+  Future<FoodTrackTask> loadFoodTrackEntryToDatabase() async {
+    try {
+      Future.delayed(Duration(seconds: 2));
+      return FoodTrackTask(
+          food_name: "Oatmeal",
+          calories: 20,
+          carbs: 20,
+          protein: 20,
+          fat: 20,
+          mealTime: "Lunch",
+          createdOn: DateTime.now(),
+          grams: 20);
+    } catch (e) {
+      print(e);
+      rethrow;
+    }
+  }
 }
