@@ -166,7 +166,7 @@ class _DayViewState extends State<DayViewScreen> {
                     ));
                   }
                 },
-                child: Text('Ok'),
+                child: Text('Ok', key: Key("add_food_modal_submit")),
               ),
             ],
           );
@@ -187,6 +187,7 @@ class _DayViewState extends State<DayViewScreen> {
       key: _addFoodKey,
       child: Column(children: [
         TextFormField(
+          key: Key('add_food_modal_food_name_field'),
           decoration: const InputDecoration(
               labelText: "Name *", hintText: "Please enter food name"),
           validator: (value) {
@@ -202,6 +203,7 @@ class _DayViewState extends State<DayViewScreen> {
           },
         ),
         TextFormField(
+          key: Key('add_food_modal_calorie_field'),
           decoration: const InputDecoration(
               labelText: "Calories *",
               hintText: "Please enter a calorie amount"),
@@ -224,6 +226,7 @@ class _DayViewState extends State<DayViewScreen> {
           },
         ),
         TextFormField(
+          key: Key('add_food_modal_carbs_field'),
           decoration: const InputDecoration(
               labelText: "Carbs *", hintText: "Please enter a carbs amount"),
           validator: (value) {
@@ -242,6 +245,7 @@ class _DayViewState extends State<DayViewScreen> {
           },
         ),
         TextFormField(
+          key: Key('add_food_modal_protein_field'),
           decoration: const InputDecoration(
               labelText: "Protein *",
               hintText: "Please enter a protein amount"),
@@ -260,6 +264,7 @@ class _DayViewState extends State<DayViewScreen> {
           },
         ),
         TextFormField(
+          key: Key('add_food_modal_fat_field'),
           decoration: const InputDecoration(
               labelText: "Fat *", hintText: "Please enter a fat amount"),
           validator: (value) {
@@ -283,6 +288,7 @@ class _DayViewState extends State<DayViewScreen> {
   Widget _showUserAmount() {
     return new Expanded(
       child: new TextField(
+          key: Key("add_food_modal_grams_field"),
           maxLines: 1,
           autofocus: true,
           decoration: new InputDecoration(
