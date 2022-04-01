@@ -34,12 +34,24 @@ void main() {
 
     final Finder dayViewButton = find.text("Day View Screen");
     await tester.tap(dayViewButton, warnIfMissed: true);
+
+    IconButton settingsButton = IconButton(
+      key: Key('add_food_modal_button'),
+      icon: Icon(Icons.add_box),
+      iconSize: 25,
+      color: Colors.white,
+      onPressed: () {},
+    );
+
+    await tester.pumpAndSettle();
+    await tester.pump(Duration(seconds: 2));
+    await tester.tap(find.byKey(ValueKey("add_food_modal_button")),
+        warnIfMissed: true);
+
     await tester.pumpAndSettle();
     await tester.pump(Duration(seconds: 2));
 
-    // ElevatedButton addFoodButton =
-
-    expect(find.text("Today"), findsOneWidget);
+    expect(find.byKey(ValueKey("add_food_modal")), findsOneWidget);
 
     debugDefaultTargetPlatformOverride = null;
   });

@@ -31,8 +31,8 @@ class _DayViewState extends State<DayViewScreen> {
   Color _leftArrowColor = Color(0xffC1C1C1);
   final _addFoodKey = GlobalKey<FormState>();
 
-  DatabaseService databaseService = new DatabaseService(
-      uid: "calorie-tracker-b7d17", currentDate: DateTime.now());
+  DatabaseService databaseService =
+      new DatabaseService(uid: DATABASE_UID, currentDate: DateTime.now());
 
   late FoodTrackTask addFoodTrack;
 
@@ -86,6 +86,7 @@ class _DayViewState extends State<DayViewScreen> {
 
   Widget _addFoodButton() {
     return IconButton(
+      key: Key('add_food_modal_button'),
       icon: Icon(Icons.add_box),
       iconSize: 25,
       color: Colors.white,
@@ -140,6 +141,7 @@ class _DayViewState extends State<DayViewScreen> {
           return AlertDialog(
             title: Text(title),
             content: _showAmountHad(),
+            key: Key("add_food_modal"),
             actions: <Widget>[
               FlatButton(
                 onPressed: () => Navigator.pop(context), // passing false
