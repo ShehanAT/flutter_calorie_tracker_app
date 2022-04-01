@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 // import 'package:flutter_actions/main.dart';
 
 void main() {
-  testWidgets("Navigate to Day View Screen", (WidgetTester tester) async {
+  testWidgets("Navigate to History Screen", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
