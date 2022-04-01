@@ -37,6 +37,7 @@ dependencies:
   openfoodfacts: ^1.14.0
   settings_ui: ^2.0.2
   mockito: ^5.0.17
+  get: ^4.6.1
 
 dependencies_overrides:
   photo_view: ^0.12.0

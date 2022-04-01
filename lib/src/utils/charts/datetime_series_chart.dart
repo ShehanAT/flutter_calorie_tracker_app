@@ -97,7 +97,7 @@ class _DateTimeChart extends State<DateTimeChart> {
             new Padding(
                 padding: new EdgeInsets.all(32.0),
                 child: new SizedBox(
-                  height: 500.0,
+                  height: 300.0,
                   child:
                       charts.TimeSeriesChart(resultChartData!, animate: true),
                 ))

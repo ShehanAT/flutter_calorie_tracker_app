@@ -20,10 +20,10 @@ Future<void> main() async {
 
 class CalorieTrackerApp extends StatefulWidget {
   @override
-  _CalorieTrackerAppState createState() => _CalorieTrackerAppState();
+  CalorieTrackerAppState createState() => CalorieTrackerAppState();
 }
 
-class _CalorieTrackerAppState extends State<CalorieTrackerApp> {
+class CalorieTrackerAppState extends State<CalorieTrackerApp> {
   DarkThemeProvider themeChangeProvider = DarkThemeProvider();
   late Widget homeWidget;
   late bool signedIn;
