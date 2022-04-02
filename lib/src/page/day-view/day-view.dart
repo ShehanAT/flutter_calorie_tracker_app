@@ -320,6 +320,7 @@ class _DayViewState extends State<DayViewScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           IconButton(
+            key: Key("left_arrow_button"),
             icon: Icon(Icons.arrow_left, size: 25.0),
             color: _leftArrowColor,
             onPressed: () {
@@ -341,6 +342,7 @@ class _DayViewState extends State<DayViewScreen> {
                 )),
           ),
           IconButton(
+              key: Key("right_arrow_button"),
               icon: Icon(Icons.arrow_right, size: 25.0),
               color: _rightArrowColor,
               onPressed: () {
@@ -448,9 +450,10 @@ class _DayViewState extends State<DayViewScreen> {
           child: new Column(children: <Widget>[
             _calorieCounter(),
             Expanded(
+                key: Key("food_track_list"),
                 child: ListView(
-              children: <Widget>[FoodTrackList(datePicked: _value)],
-            ))
+                  children: <Widget>[FoodTrackList(datePicked: _value)],
+                ))
           ]),
         ));
   }
@@ -469,19 +472,19 @@ class FoodTrackList extends StatelessWidget {
 
     final foodTracks = Provider.of<List<FoodTrackTask>>(context);
 
-    List findCurScans(List foodTrackFeed) {
-      List curScans = [];
+    List findCurFoodTracks(List foodTrackFeed) {
+      List curFoodTracks = [];
       foodTrackFeed.forEach((foodTrack) {
-        DateTime scanDate = DateTime(foodTrack.createdOn.year,
+        DateTime createdDate = DateTime(foodTrack.createdOn.year,
             foodTrack.createdOn.month, foodTrack.createdOn.day);
-        if (scanDate.compareTo(curDate) == 0) {
-          curScans.add(foodTrack);
+        if (createdDate.compareTo(curDate) == 0) {
+          curFoodTracks.add(foodTrack);
         }
       });
-      return curScans;
+      return curFoodTracks;
     }
 
-    curFoodTracks = findCurScans(foodTracks);
+    curFoodTracks = findCurFoodTracks(foodTracks);
 
     return ListView.builder(
       scrollDirection: Axis.vertical,
@@ -490,7 +493,8 @@ class FoodTrackList extends StatelessWidget {
       itemCount: curFoodTracks.length + 1,
       itemBuilder: (context, index) {
         if (index < curFoodTracks.length) {
-          return FoodTrackTile(foodTrackEntry: curFoodTracks[index]);
+          return FoodTrackTile(
+              foodTrackEntry: curFoodTracks[index], keyValue: index);
         } else {
           return SizedBox(height: 5);
         }
@@ -509,14 +513,16 @@ class FoodTrackTile extends StatelessWidget {
   final FoodTrackTask foodTrackEntry;
   DatabaseService databaseService = new DatabaseService(
       uid: "calorie-tracker-b7d17", currentDate: DateTime.now());
+  int keyValue;
 
-  FoodTrackTile({required this.foodTrackEntry});
+  FoodTrackTile({required this.foodTrackEntry, required this.keyValue});
 
   List macros = CalorieStats.macroData;
 
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
+      key: Key("food_track_tile_" + keyValue.toString()),
       leading: CircleAvatar(
         radius: 25.0,
         backgroundColor: Color(0xff5FA55A),
@@ -658,10 +664,10 @@ class FoodTrackTile extends StatelessWidget {
               fontWeight: FontWeight.w400,
             )),
         IconButton(
+            key: Key("delete_button"),
             icon: Icon(Icons.delete),
             iconSize: 16,
             onPressed: () async {
-              print("Delete button pressed");
               databaseService.deleteFoodTrackEntry(foodTrackEntry);
             }),
       ],

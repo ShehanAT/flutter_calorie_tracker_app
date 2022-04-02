@@ -34,7 +34,7 @@ class DatabaseService {
         .delete();
   }
 
-  List<FoodTrackTask> _scanListFromSnapshot(QuerySnapshot snapshot) {
+  List<FoodTrackTask> _foodTrackListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return FoodTrackTask(
         id: doc.id,
@@ -51,7 +51,7 @@ class DatabaseService {
   }
 
   Stream<List<FoodTrackTask>> get foodTracks {
-    return foodTrackCollection.snapshots().map(_scanListFromSnapshot);
+    return foodTrackCollection.snapshots().map(_foodTrackListFromSnapshot);
   }
 
   Future<List<dynamic>> getAllFoodTrackData() async {

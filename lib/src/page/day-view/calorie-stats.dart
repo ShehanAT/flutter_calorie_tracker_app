@@ -35,7 +35,7 @@ class CalorieStats extends StatelessWidget {
 
     final foodTracks = Provider.of<List<FoodTrackTask>>(context);
 
-    List findCurScans(List<FoodTrackTask> foodTracks) {
+    List findCurFoodTracks(List<FoodTrackTask> foodTracks) {
       List currentFoodTracks = [];
       foodTracks.forEach((foodTrack) {
         DateTime trackDate = DateTime(foodTrack.createdOn.year,
@@ -47,14 +47,14 @@ class CalorieStats extends StatelessWidget {
       return currentFoodTracks;
     }
 
-    List currentFoodTracks = findCurScans(foodTracks);
+    List currentFoodTracks = findCurFoodTracks(foodTracks);
 
     void findNutriments(List foodTracks) {
-      foodTracks.forEach((scan) {
-        totalCarbs += scan.carbs;
-        totalFat += scan.fat;
-        totalProtein += scan.protein;
-        displayCalories += scan.calories;
+      foodTracks.forEach((foodTrack) {
+        totalCarbs += foodTrack.carbs;
+        totalFat += foodTrack.fat;
+        totalProtein += foodTrack.protein;
+        displayCalories += foodTrack.calories;
       });
       totalCalories = 9 * totalFat + 4 * totalCarbs + 4 * totalProtein;
     }
