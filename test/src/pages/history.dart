@@ -5,7 +5,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:calorie_tracker_app/src/services/shared_preference_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
-// import 'package:flutter_actions/main.dart';
 
 void main() {
   testWidgets("Navigate to History Screen", (WidgetTester tester) async {
@@ -18,7 +17,6 @@ void main() {
     final Finder historyButton = find.text("History Screen");
     await tester.tap(historyButton, warnIfMissed: true);
     await tester.pumpAndSettle();
-    await tester.pump(Duration(seconds: 2));
 
     expect(find.text("History Screen"), findsOneWidget);
 

@@ -19,7 +19,6 @@ void main() {
     final Finder dayViewButton = find.text("Day View Screen");
     await tester.tap(dayViewButton, warnIfMissed: true);
     await tester.pumpAndSettle();
-    await tester.pump(Duration(seconds: 2));
 
     expect(find.text("Today"), findsOneWidget);
 
@@ -46,12 +45,11 @@ void main() {
     );
 
     await tester.pumpAndSettle();
-    await tester.pump(Duration(seconds: 2));
+
     await tester.tap(find.byKey(ValueKey("add_food_modal_button")),
         warnIfMissed: true);
 
     await tester.pumpAndSettle();
-    await tester.pump(Duration(seconds: 2));
 
     expect(find.byKey(ValueKey("add_food_modal")), findsOneWidget);
 
@@ -79,12 +77,11 @@ void main() {
     );
 
     await tester.pumpAndSettle();
-    await tester.pump(Duration(seconds: 2));
+
     await tester.tap(find.byKey(ValueKey("add_food_modal_button")),
         warnIfMissed: true);
 
     await tester.pumpAndSettle();
-    // await tester.pump(Duration(seconds: 2));
 
     await tester.enterText(
         find.byKey(ValueKey("add_food_modal_food_name_field")), "Cheese");
@@ -176,7 +173,6 @@ void main() {
         warnIfMissed: true);
 
     await tester.pumpAndSettle();
-    // await tester.pump(Duration(seconds: 2));
 
     Random random = new Random();
     int randomNumber = random.nextInt(100);
