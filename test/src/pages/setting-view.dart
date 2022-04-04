@@ -7,7 +7,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 
 void main() {
-  testWidgets("Navigate to Settings Screen", (WidgetTester tester) async {
+  testWidgets(
+      "Given the user opens the app"
+      "When the user taps the Setting button"
+      "Then the user is shown the Settings Screen",
+      (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();

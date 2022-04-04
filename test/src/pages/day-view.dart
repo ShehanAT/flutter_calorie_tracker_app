@@ -9,7 +9,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 
 void main() {
-  testWidgets("Navigate to Day View Screen", (WidgetTester tester) async {
+  testWidgets(
+      "Given user opens the app"
+      "When user taps the Day View Screen button"
+      "Then Day View Screen is shown", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
@@ -25,8 +28,10 @@ void main() {
     debugDefaultTargetPlatformOverride = null;
   });
 
-  testWidgets("Add Food modal opens when tapping Add Food button",
-      (WidgetTester tester) async {
+  testWidgets(
+      "Given user opens the Day View screen"
+      "When user taps the Add Food button"
+      "Then Add Food modal opens", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
@@ -57,8 +62,9 @@ void main() {
   });
 
   testWidgets(
-      "Add Food modal creates FoodTrack instance after submitting Add Food form",
-      (WidgetTester tester) async {
+      "Given user opens the Day View Screen"
+      "When user submits the Add Food modal form"
+      "Then a new FoodTrack instance is created", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
@@ -107,7 +113,10 @@ void main() {
     debugDefaultTargetPlatformOverride = null;
   });
 
-  testWidgets("Pressing Left Arrow Button Changes Date to Yesterday",
+  testWidgets(
+      "Given user opens the Day View screen"
+      "When the user taps the Left Arrow Button"
+      "Then DatePicker's value changes to Yesterday",
       (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
@@ -130,7 +139,9 @@ void main() {
   });
 
   testWidgets(
-      "Pressing Left Arrow Button Then Right Arrow Button Changes Date to Today",
+      "Given user opens the Day View screen"
+      "When the user taps the Left Arrow Button then Right Arrow Button"
+      "Then DatePicker's value changes from Yesterday to Today",
       (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
@@ -156,7 +167,10 @@ void main() {
     debugDefaultTargetPlatformOverride = null;
   });
 
-  testWidgets("Pressing Food Tile Delete Button Removes Tile From List",
+  testWidgets(
+      "Given user opens the Day View Screen"
+      "When the user taps a Food Tile Delete Button"
+      "Then that Food Tile is removed from the Food Track List",
       (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();

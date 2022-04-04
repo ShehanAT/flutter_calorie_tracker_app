@@ -7,7 +7,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 
 void main() {
-  testWidgets("Navigate to History Screen", (WidgetTester tester) async {
+  testWidgets(
+      "Given user opens the app"
+      "When user taps the History Screen button"
+      "Then the History Screen is shown", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();

@@ -6,7 +6,10 @@ import 'package:calorie_tracker_app/src/services/shared_preference_service.dart'
 import 'package:firebase_core/firebase_core.dart';
 
 void main() {
-  testWidgets("Find homepage title", (WidgetTester tester) async {
+  testWidgets(
+      "Given the user opens the app"
+      "When the user is shown the homepage"
+      "Then the user is shown the homepage title", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
@@ -17,7 +20,11 @@ void main() {
     debugDefaultTargetPlatformOverride = null;
   });
 
-  testWidgets("Find homepage subtitle", (WidgetTester tester) async {
+  testWidgets(
+      "Given the user opens the app"
+      "When the user is shown the homepage"
+      "Then the user is shown the homepage subtitle",
+      (WidgetTester tester) async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
     await SharedPreferencesService().init();
@@ -25,7 +32,11 @@ void main() {
     expect(find.text("Welcome To Calorie Tracker App!"), findsOneWidget);
   });
 
-  testWidgets("Find Day View Button", (WidgetTester tester) async {
+  testWidgets(
+      "Given the user opens the app"
+      "When the user is shown the homepage"
+      "Then the user is shown the Day View button",
+      (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
     WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +52,10 @@ void main() {
     debugDefaultTargetPlatformOverride = null;
   });
 
-  testWidgets("Find History Screen Button", (WidgetTester tester) async {
+  testWidgets(
+      "Given the user opens the app"
+      "When the user is shown the homepage"
+      "Then the user is shown the History button", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
     WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +71,10 @@ void main() {
     debugDefaultTargetPlatformOverride = null;
   });
 
-  testWidgets("Find Setting Screen Button", (WidgetTester tester) async {
+  testWidgets(
+      "Given the user opens the app"
+      "When the user is shown the homepage"
+      "Then the user is shown the Setting button", (WidgetTester tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
 
     WidgetsFlutterBinding.ensureInitialized();
