@@ -1,5 +1,8 @@
 import 'package:calorie_tracker_app/src/model/food_track_task.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:async';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 
 class DatabaseService {
   final String uid;
@@ -62,6 +65,18 @@ class DatabaseService {
 
   Future<String> getFoodTrackData(String uid) async {
     DocumentSnapshot snapshot = await foodTrackCollection.doc(uid).get();
+    File outputFile = new File("foodTrack-records.txt");
+    String text;
+    try {
+      final Directory directory = await getApplicationDocumentsDirectory();
+      String outputPath =
+          'C:\\Users\\sheha\\OneDrive\\Documents\\FlutterApplications\\calorie_tracker_app\\foodTrack-records.txt';
+      final File file = File(outputPath);
+      await file.writeAsString(snapshot.toString());
+    } catch (e) {
+      print(e);
+    }
+
     return snapshot.toString();
   }
 
