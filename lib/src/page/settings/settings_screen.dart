@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:calorie_tracker_app/src/model/food_track_task.dart';
-import 'package:calorie_tracker_app/component/iconpicker/icon_picker_builder.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class SettingsScreen extends StatefulWidget {

@@ -60,6 +60,7 @@ class DatabaseService {
   Future<List<dynamic>> getAllFoodTrackData() async {
     QuerySnapshot snapshot = await foodTrackCollection.get();
     List<dynamic> result = snapshot.docs.map((doc) => doc.data()).toList();
+    print(result);
     return result;
   }
 
@@ -71,7 +72,8 @@ class DatabaseService {
       final Directory directory = await getApplicationDocumentsDirectory();
       String outputPath =
           'C:\\Users\\sheha\\OneDrive\\Documents\\FlutterApplications\\calorie_tracker_app\\foodTrack-records.txt';
-      final File file = File(outputPath);
+      final File file = File(directory.path + "/foodTrack-records.txt");
+      print(snapshot.toString());
       await file.writeAsString(snapshot.toString());
     } catch (e) {
       print(e);

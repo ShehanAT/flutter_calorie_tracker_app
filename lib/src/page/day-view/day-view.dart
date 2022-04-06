@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:calorie_tracker_app/src/model/food_track_task.dart';
-import 'package:calorie_tracker_app/component/iconpicker/icon_picker_builder.dart';
 import 'package:calorie_tracker_app/src/utils/charts/datetime_series_chart.dart';
 import 'calorie-stats.dart';
 import 'package:provider/provider.dart';

@@ -1,0 +1,12 @@
+[
+{
+food_name: Maple Syrup, 
+carbs: 10, 
+mealTime: , 
+protein: 10, 
+fat: 10, 
+calories: 50, 
+grams: 1, 
+createdOn: Timestamp(seconds=1647193526, nanoseconds=230000000)
+},
+];
