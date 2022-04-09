@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:calorie_tracker_app/src/model/food_track_task.dart';
-import 'package:calorie_tracker_app/src/utils/charts/datetime_series_chart.dart';
 import 'calorie-stats.dart';
 import 'package:provider/provider.dart';
 import 'package:calorie_tracker_app/src/services/database.dart';
-import 'package:openfoodfacts/model/Product.dart';
-import 'package:openfoodfacts/openfoodfacts.dart';
 import 'dart:math';
 import 'package:calorie_tracker_app/src/utils/theme_colors.dart';
 import 'package:calorie_tracker_app/src/utils/constants.dart';
