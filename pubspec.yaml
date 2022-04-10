@@ -11,6 +11,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations: 
+    sdk: flutter
+  localization: ^ 2.1.0
   flutter_colorpicker: ^1.0.3
   json_annotation: ^4.4.0
   sqflite: ^2.0.2
