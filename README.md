@@ -1,4 +1,4 @@
-# calorie_tracker_app
+# Flutter Calorie Tracker App
 
 ### Overview 
 A Simple Calorie Tracker Application built using Flutter and Firebase
@@ -23,7 +23,7 @@ Figure 4: History Screen image 1
 
 ![Settings Screen image 1](/screenshots/settingsscreen_image1.png)
 
-Figure 4: Settings Screen image 1 
+Figure 5: Settings Screen image 1 
 
 
 
