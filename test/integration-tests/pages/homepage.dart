@@ -15,6 +15,7 @@ void main() {
     await Firebase.initializeApp();
     await SharedPreferencesService().init();
     await tester.pumpWidget(CalorieTrackerApp());
+
     expect(find.text("Flutter Calorie Tracker App"), findsOneWidget);
 
     debugDefaultTargetPlatformOverride = null;
@@ -44,9 +45,6 @@ void main() {
     await SharedPreferencesService().init();
     await tester.pumpWidget(CalorieTrackerApp());
 
-    ButtonStyleButton dayViewButton =
-        ElevatedButton(onPressed: () {}, child: Text("Day View Screen"));
-
     expect(find.text("Day View Screen"), findsOneWidget);
 
     debugDefaultTargetPlatformOverride = null;
@@ -63,9 +61,6 @@ void main() {
     await SharedPreferencesService().init();
     await tester.pumpWidget(CalorieTrackerApp());
 
-    ButtonStyleButton dayViewButton =
-        ElevatedButton(onPressed: () {}, child: Text("History Screen"));
-
     expect(find.text("History Screen"), findsOneWidget);
 
     debugDefaultTargetPlatformOverride = null;
@@ -81,9 +76,6 @@ void main() {
     await Firebase.initializeApp();
     await SharedPreferencesService().init();
     await tester.pumpWidget(CalorieTrackerApp());
-
-    ButtonStyleButton dayViewButton =
-        ElevatedButton(onPressed: () {}, child: Text("Settings Screen"));
 
     expect(find.text("Settings Screen"), findsOneWidget);
 
