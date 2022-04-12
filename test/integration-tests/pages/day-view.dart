@@ -42,14 +42,6 @@ void main() {
     final Finder dayViewButton = find.text("Day View Screen");
     await tester.tap(dayViewButton, warnIfMissed: true);
 
-    IconButton settingsButton = IconButton(
-      key: Key('add_food_modal_button'),
-      icon: Icon(Icons.add_box),
-      iconSize: 25,
-      color: Colors.white,
-      onPressed: () {},
-    );
-
     await tester.pumpAndSettle();
 
     await tester.tap(find.byKey(ValueKey("add_food_modal_button")),
@@ -75,14 +67,6 @@ void main() {
     final Finder dayViewButton = find.text("Day View Screen");
     await tester.tap(dayViewButton, warnIfMissed: true);
 
-    IconButton settingsButton = IconButton(
-      key: Key('add_food_modal_button'),
-      icon: Icon(Icons.add_box),
-      iconSize: 25,
-      color: Colors.white,
-      onPressed: () {},
-    );
-
     await tester.pumpAndSettle();
 
     await tester.tap(find.byKey(ValueKey("add_food_modal_button")),
@@ -98,8 +82,6 @@ void main() {
         find.byKey(ValueKey("add_food_modal_carbs_field")), "15");
     await tester.enterText(
         find.byKey(ValueKey("add_food_modal_protein_field")), "25");
-    await tester.enterText(
-        find.byKey(ValueKey("add_food_modal_fat_field")), "20");
     await tester.enterText(
         find.byKey(ValueKey("add_food_modal_fat_field")), "20");
     await tester.enterText(
@@ -201,8 +183,6 @@ void main() {
         find.byKey(ValueKey("add_food_modal_carbs_field")), "15");
     await tester.enterText(
         find.byKey(ValueKey("add_food_modal_protein_field")), "25");
-    await tester.enterText(
-        find.byKey(ValueKey("add_food_modal_fat_field")), "20");
     await tester.enterText(
         find.byKey(ValueKey("add_food_modal_fat_field")), "20");
     await tester.enterText(
