@@ -11,8 +11,9 @@ void main() {
 
   group('testing DatabaseService', () {
     test(
-        "DatabaseService.getAllFoodTrackData() should return non-empty list of foodTrack instances",
-        () async {
+        "Given that we instantiate a DatabaseService instance"
+        "When we fetch all foodTrack instances from the Firestore database"
+        "Then retrieved List should not be empty", () async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();
       databaseService =
@@ -26,7 +27,9 @@ void main() {
     });
 
     test(
-        "First element of the list returned by DatabaseService.getAllFoodTrackData() should contain the required values to create FoodTrackTask instance",
+        "Given that we instantiate a DatabaseService instance"
+        "When we fetch all foodTrack instances from the Firestore database and instantiate a FoodTrackTask instance using the first element from that List"
+        "Then the FoodTrackTask instance should contain should valid fields",
         () async {
       WidgetsFlutterBinding.ensureInitialized();
       await Firebase.initializeApp();

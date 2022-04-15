@@ -6,7 +6,11 @@ void main() {
   group("Testing Model classes", () {
     var favoriteFoods = FavoriteFoods();
 
-    test("A new Food instance should be added to Favorite Foods array", () {
+    test(
+        "Given that we instantiate a FavoriteFoods instance"
+        "When new Food instances are added to it"
+        "Then the FavoriteFoods instance's _favoriteFoodItems List should contain that Food instance",
+        () {
       var newFood = Food(id: 1, food_name: "Sandwich");
 
       favoriteFoods.add(newFood);
@@ -15,7 +19,9 @@ void main() {
     });
 
     test(
-        "A specified Food instance should be deleted from Favorite Foods array",
+        "Given that we instantiate a FavoriteFoods instance"
+        "When Food instances are deleted from its _favoriteFoodItems List"
+        "Then the FavoriteFoods instance's _favoriteFoodItems List should contain not contain that Food instance",
         () {
       var newFood = Food(id: 2, food_name: "Pasta");
 
