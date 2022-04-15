@@ -68,16 +68,6 @@ class DatabaseService {
     DocumentSnapshot snapshot = await foodTrackCollection.doc(uid).get();
     File outputFile = new File("foodTrack-records.txt");
     String text;
-    try {
-      final Directory directory = await getApplicationDocumentsDirectory();
-      String outputPath =
-          'C:\\Users\\sheha\\OneDrive\\Documents\\FlutterApplications\\calorie_tracker_app\\foodTrack-records.txt';
-      final File file = File(directory.path + "/foodTrack-records.txt");
-      print(snapshot.toString());
-      await file.writeAsString(snapshot.toString());
-    } catch (e) {
-      print(e);
-    }
 
     return snapshot.toString();
   }

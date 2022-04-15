@@ -44,9 +44,16 @@ void main() {
           protein: firstFoodTrack["protein"],
           fat: firstFoodTrack["fat"],
           mealTime: firstFoodTrack['mealTime'],
-          createdOn: firstFoodTrack['createdOn'],
+          createdOn: firstFoodTrack['createdOn'].toDate(),
           grams: firstFoodTrack["grams"]);
-      expect(foodTrack, true);
+      expect(foodTrack.food_name, isA<String>());
+      expect(foodTrack.calories, isA<num>());
+      expect(foodTrack.carbs, isA<num>());
+      expect(foodTrack.protein, isA<num>());
+      expect(foodTrack.fat, isA<num>());
+      expect(foodTrack.mealTime, isA<String>());
+      expect(foodTrack.createdOn, isA<DateTime>());
+      expect(foodTrack.grams, isA<num>());
     });
   });
 }
